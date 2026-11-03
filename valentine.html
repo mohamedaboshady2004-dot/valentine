@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Valentine’s Day ❤️</title>
+<style>
+:root {
+  --bg1: #4a001f;
+  --bg2: #210014;
+  --ink: #ffe3ec;
+  --card: rgba(255, 255, 255, 0.1);
+  --accent: #ff2e63;
+  --panel: #3a1024;
+  color-scheme: dark;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: radial-gradient(circle at 50% 30%, #7d0038 0%, #36001b 50%, #17000c 100%);
+  background-size: 200% 200%;
+  animation: bgPulse 8s ease infinite alternate;
+  color: var(--ink);
+  font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+@keyframes bgPulse {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.wrap {
+  display: none;
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  width: 100%;
+  padding: 20px;
+}
+
+.wrap.on {
+  display: block;
+}
+
+#gate {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #fff;
+  background: radial-gradient(circle at 50% 35%, #80003b 0%, #38001a 60%, #15000a 100%);
+}
+
+#gate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(2px 2px at 15% 20%, #fff, transparent),
+    radial-gradient(2.5px 2.5px at 75% 15%, #ffd700, transparent),
+    radial-gradient(2px 2px at 40% 65%, #fff, transparent),
+    radial-gradient(3px 3px at 85% 75%, #ff5c8a, transparent),
+    radial-gradient(2px 2px at 25% 85%, #ffd700, transparent);
+  animation: tw 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes tw {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+.hero-container {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+#infinity-icon {
+  font-size: 4rem;
+  z-index: 5;
+  color: #ffd700;
+  line-height: 1;
+  animation: infinityPulse 2s ease-in-out infinite;
+  text-shadow: 0 0 20px #ff2e63, 0 0 40px #ffd700;
+}
+
+@keyframes infinityPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 20px #ff2e63); }
+}
+
+.orbit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: rotateOrbit 14s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbit-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+
+.orbit-text span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 8px #ff2e63, 0 0 4px #ffd700;
+  transform-origin: 0 0;
+  transform: rotate(calc(var(--i) * 10deg)) translate(90px) rotate(90deg);
+}
+
+#gate h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 46, 99, 0.9);
+  margin: 10px 0 10px;
+}
+
+#gmsg {
+  min-height: 3.2em;
+  font-size: 1.3rem;
+  color: #ffe3ec;
+  margin: 10px 0;
+  font-weight: bold;
+  animation: in 0.5s ease both;
+}
+
+#gbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+  margin-top: 15px;
+}
+
+#yes {
+  margin: 0;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff2e63, #ff0055);
+  box-shadow: 0 0 30px rgba(255, 46, 99, 0.9);
+  border: 2px solid #ffb3c6;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#no {
+  margin: 0;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 6px;
+  color: #ff5c8a;
+}
+
+.sub {
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.card {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 26px 20px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  line-height: 1.9;
+  box-shadow: 0 10px 30px rgba(255, 46, 94, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 16px;
+}
+
+.card span {
+  animation: in 0.9s ease both;
+}
+
+@keyframes in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+button, label.b {
+  display: inline-block;
+  margin: 16px 5px 0;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 30px;
+  background: #ff2e63;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+label.b {
+  background: transparent;
+  color: #ff5c8a;
+  border: 2px solid #ff5c8a;
+  padding: 10px 20px;
+}
+
+input[type=file] {
+  display: none;
+}
+
+.dots {
+  margin-top: 14px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.h {
+  position: fixed;
+  bottom: -40px;
+  z-index: 1;
+  animation: up linear forwards;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes up {
+  to { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+
+#ed {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 5;
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+#pan {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+#pan .in {
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 18px;
+  padding: 18px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90%;
+  overflow: auto;
+  text-align: right;
+}
+
+#pan input, #pan textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ff2e63;
+  background: transparent;
+  color: var(--ink);
+  margin: 6px 0 12px;
+}
+
+#pan textarea {
+  height: 240px;
+}
+</style>
+</head>
+<body>
+
+<button id="ed">✏️ تعديل</button>
+
+<div id="gate">
+  <div class="hero-container">
+    <div id="infinity-icon">∞</div>
+    <div class="orbit-ring">
+      <div class="orbit-text" id="orbitText"></div>
+    </div>
+  </div>
+
+  <h2 dir="ltr">Would you be my valentine? 💘</h2>
+  <div id="gmsg" dir="auto"></div>
+  
+  <div id="gbtn">
+    <button id="yes">Yes 💖</button>
+    <button id="no">No 💔</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <h1 dir="ltr">❤️ Happy Valentine’s Day ❤️</h1>
+  <div class="sub" id="to" dir="auto"></div>
+  <div class="sub">اضغطي عشان تقري كلامي ليكي</div>
+  <div class="card" id="card"><span id="first"></span></div>
+  <div class="dots" id="dots"></div>
+  <button id="next">التالي ←</button>
+  <button id="music">🎵 تشغيل الأغنية</button>
+  <audio id="a" src="w3dtk.mp3" loop></audio>
+</div>
+
+<div id="pan">
+  <div class="in">
+    <b>تعديل الصفحة</b><br>
+    <small>السطر اللي فوق العنوان (تقدر تكتبه بالإنجليزي):</small>
+    <input id="to2" dir="auto">
+    <small>الاسم:</small>
+    <input id="nm">
+    <small>رسايل زرار No (كل رسالة في سطر، كل مرة تدوس No هتظهر واحدة):</small>
+    <textarea id="nt" style="height:120px"></textarea>
+    <small>الرسايل (كل رسالة في سطر. تقدر تكتب {name} وهيتحول للاسم):</small>
+    <textarea id="tx"></textarea>
+    <button id="sv" style="margin:0">💾 حفظ</button>
+    <button id="cx" style="margin:0 8px;background:transparent;color:#ff5c8a;border:2px solid #ff5c8a">إلغاء</button>
+    <div id="msg" style="margin-top:10px"></div>
+  </div>
+</div>
+
+<script id="d" type="application/json">
+{
+  "name": "🎀❤️Bassant",
+  "to": "To my love, Basant 💌",
+  "no": [
+    "طب فكّري تاني 😉",
+    "متأكدة يعني 🤨",
+    "هنهزر بقي 😒",
+    "بجد والله تمام🙄",
+    "دوسي Yes بقى 😤❤️",
+    "الزرار الأحمر ده حلو أوي، جربيه 😏"
+  ],
+  "lines": [
+    "كل سنة وانتي حبيبتي وصاحبتي وبنتي وروحي وعقبال ما نتجمع مع بعض علي خير ف بيت واحد ان شاء الله واقدر اعوضك عن كل حاجه واخليكي مبسوطة دايما وفرحانه يا قلبي وربنا يخليكي ليا وميحرمنيش منك ابدا يا احلي حاجه في حياتي يا مجنناني انتي 😂",
+    "احلي 5% في حياتي والله وجودك لوحده يخلي الدنيا دي اجمل واحلي مكان في عيني وكل دقيقه بتعدي وانا معاكي بتبقي عيد بالنسبالي بحبك قد الدنيا دي كلها ومش هبطل حب فيكي لحد اخر لحظة في عمرى ❤️",
+    "ومهما الكلام طول ما بينا او قصر عمري ما هقدر اوصفلك انتي غالية عندي ازاي والامان اللي بحسه وانا معاكي كفاية ضحكتك اللي بالدنيا وما فيها ربنا مايجيب بينا اي زعل ولا فراق ابدا يا روحي ونكمل العمر كلو سوا يارب ❤️❤️❤️😘"
+  ]
+}</script>
+
+<script>
+var textStr = "LOVE YOU FOREVER ❤️ 🌹   ";
+var orbitContainer = document.getElementById('orbitText');
+var chars = textStr.split('');
+chars.forEach(function(char, idx) {
+  var span = document.createElement('span');
+  span.textContent = char;
+  span.style.setProperty('--i', idx);
+  orbitContainer.appendChild(span);
+});
+
+var ORIG = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+var D = JSON.parse(document.getElementById('d').textContent);
+
+function T(s) { return s.split('{name}').join(D.name); }
+
+document.getElementById('to').textContent = D.to || ('إلى ' + D.name + ' 💌');
+// تم إزالة الواو من النص هنا بنجاح
+document.getElementById('first').textContent = 'يا بسبوستي 🎀❤️، كتبت شوية كلام كدا من قلبي ليكي… 💌';
+
+var i = -1, card = document.getElementById('card'), dots = document.getElementById('dots');
+
+function show() {
+  i = (i + 1) % D.lines.length;
+  card.innerHTML = '<span></span>';
+  card.firstChild.textContent = T(D.lines[i]);
+  dots.textContent = (i + 1) + ' / ' + D.lines.length;
+  heart(20);
+}
+document.getElementById('next').onclick = show;
+
+var nn = 0, yes = document.getElementById('yes'), no = document.getElementById('no'), gm = document.getElementById('gmsg');
+
+no.onclick = function() {
+  nn++;
+  var L = (D.no && D.no.length) ? D.no : ['😢'];
+  gm.textContent = L[(nn - 1) % L.length];
+  gm.style.animation = 'none';
+  void gm.offsetWidth;
+  gm.style.animation = '';
+  
+  var s = 1 + nn * 0.25;
+  yes.style.fontSize = (1.2 * s) + 'rem';
+  yes.style.padding = (14 * s) + 'px ' + (36 * s) + 'px';
+
+  var xOffset = (nn % 2 === 0 ? 1 : -1) * Math.min(130, nn * 25);
+  var yOffset = Math.sin(nn) * 35;
+  no.style.transform = 'translate(' + xOffset + 'px, ' + yOffset + 'px)';
+
+  if (nn >= 8) {
+    yes.style.cssText += ';position:fixed;inset:0;width:100%;height:100%;border-radius:0;font-size:3rem;z-index:4;display:flex;align-items:center;justify-content:center;';
+  }
+  heart(8);
+};
+
+yes.onclick = function() {
+  document.getElementById('gate').style.display = 'none';
+  document.querySelector('.wrap').classList.add('on');
+  heart(60);
+  try { 
+    au.play(); 
+    playing = true;
+    mb.textContent = '⏸ إيقاف';
+  } catch(e) {}
+};
+
+function heart(n) {
+  var items = ['💖', '✨', '🌹', '🤍', '💛', '🌸', '💘', '⭐', '❤️'];
+  for (var k = 0; k < n; k++) {
+    var h = document.createElement('div');
+    h.className = 'h';
+    h.textContent = items[Math.floor(Math.random() * items.length)];
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.fontSize = (16 + Math.random() * 32) + 'px';
+    h.style.opacity = 0.85 + Math.random() * 0.15;
+    h.style.animationDuration = (3.5 + Math.random() * 4) + 's';
+    document.body.appendChild(h);
+    setTimeout((function(x) {
+      return function() { x.remove(); };
+    })(h), 8000);
+  }
+}
+
+heart(35);
+setInterval(function() { heart(3); }, 200);
+
+var playing = false;
+var mb = document.getElementById('music'), au = document.getElementById('a');
+
+mb.onclick = function() {
+  if (playing) {
+    au.pause();
+    playing = false;
+    mb.textContent = '🎵 تشغيل الأغنية';
+    return;
+  }
+  try {
+    au.play(); 
+    playing = true;
+    mb.textContent = '⏸ إيقاف';
+  } catch(e) {}
+};
+
+var AR = null, ed = document.getElementById('ed'), pan = document.getElementById('pan'), msg = document.getElementById('msg');
+(async function() {
+  try {
+    if (typeof claude === 'undefined') return;
+    var u = await claude.use('user');
+    AR = await claude.use('artifact');
+    if (AR && ((u && u.canEdit && u.canEdit()) || location.hash === '#edit')) ed.style.display = 'block';
+  } catch(e) {}
+})();
+
+ed.onclick = function() {
+  document.getElementById('to2').value = D.to || '';
+  document.getElementById('nt').value = (D.no || []).join('\n');
+  document.getElementById('nm').value = D.name;
+  document.getElementById('tx').value = D.lines.join('\n');
+  msg.textContent = '';
+  pan.style.display = 'flex';
+};
+
+document.getElementById('cx').onclick = function() { pan.style.display = 'none'; };
+
+document.getElementById('sv').onclick = async function() {
+  var name = document.getElementById('nm').value.trim() || D.name;
+  var lines = document.getElementById('tx').value.split('\n').map(function(s) { return s.trim(); }).filter(Boolean);
+  if (!lines.length) { msg.textContent = 'اكتب رسالة واحدة على الأقل'; return; }
+  var json = JSON.stringify({
+    name: name,
+    to: document.getElementById('to2').value.trim(),
+    no: document.getElementById('nt').value.split('\n').map(function(s) { return s.trim(); }).filter(Boolean),
+    lines: lines
+  }).split('<').join('\\u003c');
+  
+  var S1 = '<scr' + 'ipt id="d" type="application/json">', S2 = '</scr' + 'ipt>';
+  var a = ORIG.indexOf(S1), b = ORIG.indexOf(S2, a);
+  if (a < 0 || b < 0) { msg.textContent = 'حصلت مشكلة، جرّب تاني'; return; }
+  msg.textContent = 'جاري الحفظ…';
+  try {
+    await AR.publish(ORIG.slice(0, a + S1.length) + json + ORIG.slice(b));
+  } catch(e) {
+    msg.textContent = 'ماتحفظش: ' + ((e && e.message) || 'خطأ');
+  }
+};
+</script>
+</body>
+</html>
